@@ -1,3 +1,4 @@
+import { TaskService } from './core/task.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app works!';
+  tasks;
+
+  constructor(private taskService: TaskService) {
+    this.tasks = taskService.getTasks();
+  }
 }
