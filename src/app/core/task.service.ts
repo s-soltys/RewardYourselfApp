@@ -17,4 +17,12 @@ export class TaskService {
       });
     });
   }
+
+  upsert(task) {
+    return new Observable<Task>((subscriber: Subscriber<Task>) => {
+      this.minimongo.tasks.upsert(task, (responseTask: Task) => {
+          subscriber.next(responseTask);
+      });
+    });
+  }
 }

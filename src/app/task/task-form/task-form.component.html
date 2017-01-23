@@ -1,0 +1,13 @@
+<form (submit)='submit({ name: name.value, score: score.value })' #form>
+  <div>
+    <label for="name">Name</label>
+    <input type="text" name="tag" ngModel #name>
+  </div>
+  <div>
+    <label for="name">Score</label>
+    <input type="number" name="score" ngModel #score>
+  </div>
+  <div>
+    <input type="submit" value="Submit">
+  </div>
+</form>
