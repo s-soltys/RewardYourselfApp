@@ -1,13 +1,8 @@
-<form (ngSubmit)='submitTaskEvent.emit(taskForm.value)' #taskForm="ngForm">
-  <div>
-    <label for="name">Name</label>
-    <input type="text" name="tag" ngModel required>
-  </div>
-  <div>
-    <label for="name">Score</label>
-    <input type="number" name="score" ngModel required>
-  </div>
-  <div>
-    <input type="submit" value="Submit" [disabled]="!taskForm.valid" >
-  </div>
-</form>
+<md-card class="app-input-section">
+  <md-card-title>Add task</md-card-title>
+  <form (ngSubmit)='submitTaskEvent.emit(taskForm.value)' #taskForm="ngForm">
+    <md-input placeholder="Tag" type="text" name='tag' ngModel required></md-input><br>
+    <md-input placeholder="Score" type="number" name='score' ngModel required></md-input><br>
+    <button md-raised-button color="primary" type="submit" value="submit"[disabled]="!taskForm.valid">SAVE</button>
+  </form>
+</md-card>

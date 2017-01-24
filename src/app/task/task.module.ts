@@ -4,11 +4,13 @@ import { TaskListComponent } from './task-list/task-list.component';
 import { TaskFormComponent } from './task-form/task-form.component';
 import { TaskDashboardComponent } from './task-dashboard/task-dashboard.component';
 import { CoreModule } from './../core/core.module';
+import { MaterialModule } from '@angular/material';
 
 @NgModule({
   imports: [
     CommonModule,
-    CoreModule
+    CoreModule,
+    MaterialModule.forRoot()
   ],
   declarations: [TaskListComponent, TaskFormComponent, TaskDashboardComponent],
   exports: [TaskDashboardComponent]

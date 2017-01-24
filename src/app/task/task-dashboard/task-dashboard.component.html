@@ -1,9 +1,2 @@
-<div>
-  <h2>Task dashboard</h2>
-</div>
-<div>
-  <app-task-list [tasks]='tasks$ | async'></app-task-list>
-</div>
-<div>
-  <app-task-form (taskSubmitted)='taskReceived($event)'></app-task-form>
-</div>
+<app-task-form (taskSubmitted)='taskReceived($event)'></app-task-form>
+<app-task-list [tasks]='tasks$ | async'></app-task-list>

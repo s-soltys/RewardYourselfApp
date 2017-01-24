@@ -12,14 +12,16 @@ export class TaskDashboardComponent implements OnInit {
   constructor(private taskService: TaskService) { }
 
   ngOnInit() {
-    this.tasks$ = this.taskService.getTasks();
+    this.updateTaskList();
   }
 
   taskReceived(task){
-    console.log('received ' + JSON.stringify(task));
     this.taskService.upsert(task).subscribe(r => {
-      console.log('task saved');
-      this.tasks$ = this.taskService.getTasks();
+      this.updateTaskList();
     });
+  }
+
+  updateTaskList(){
+    this.tasks$ = this.taskService.getTasks().map(tasks => tasks.sort((a, b) => a.tag > b.tag ? +1 : -1));
   }
 }
