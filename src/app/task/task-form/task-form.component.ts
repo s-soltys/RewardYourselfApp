@@ -6,14 +6,11 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./task-form.component.scss']
 })
 export class TaskFormComponent implements OnInit {
-  @Output('taskSubmitted') taskEvent = new EventEmitter();
+  @Output('taskSubmitted') submitTaskEvent = new EventEmitter();
 
   constructor() { }
 
   ngOnInit() {
   }
-
-  submit(task) {
-    this.taskEvent.emit(task);
-  }
+  
 }

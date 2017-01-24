@@ -1,13 +1,13 @@
-<form (submit)='submit({ name: name.value, score: score.value })' #form>
+<form (ngSubmit)='submitTaskEvent.emit(taskForm.value)' #taskForm="ngForm">
   <div>
     <label for="name">Name</label>
-    <input type="text" name="tag" ngModel #name>
+    <input type="text" name="tag" ngModel required>
   </div>
   <div>
     <label for="name">Score</label>
-    <input type="number" name="score" ngModel #score>
+    <input type="number" name="score" ngModel required>
   </div>
   <div>
-    <input type="submit" value="Submit">
+    <input type="submit" value="Submit" [disabled]="!taskForm.valid" >
   </div>
 </form>

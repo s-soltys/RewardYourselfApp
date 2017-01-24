@@ -1,4 +1,9 @@
-<p>
-  task-dashboard works!
-</p>
-<app-task-form (taskSubmitted)='taskReceived($event)'></app-task-form>
+<div>
+  <h2>Task dashboard</h2>
+</div>
+<div>
+  <app-task-list [tasks]='tasks$ | async'></app-task-list>
+</div>
+<div>
+  <app-task-form (taskSubmitted)='taskReceived($event)'></app-task-form>
+</div>

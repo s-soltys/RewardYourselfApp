@@ -7,17 +7,19 @@ import { TaskService } from './../../core/core.module';
   styleUrls: ['./task-dashboard.component.scss']
 })
 export class TaskDashboardComponent implements OnInit {
+  tasks$;
 
   constructor(private taskService: TaskService) { }
 
   ngOnInit() {
+    this.tasks$ = this.taskService.getTasks();
   }
 
   taskReceived(task){
     console.log('received ' + JSON.stringify(task));
     this.taskService.upsert(task).subscribe(r => {
       console.log('task saved');
+      this.tasks$ = this.taskService.getTasks();
     });
-    // this.taskService
   }
 }

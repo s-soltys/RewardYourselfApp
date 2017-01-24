@@ -7,7 +7,8 @@ import { CoreModule } from './../core/core.module';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    CoreModule
   ],
   declarations: [TaskListComponent, TaskFormComponent, TaskDashboardComponent],
   exports: [TaskDashboardComponent]
