@@ -4,12 +4,11 @@ function createScaleAnim(tag: string, showTime: number, hideTime: number) {
   return trigger('anim', [
     state("void", style({ transform: 'scale(0)' })),
     state("enter", style({ transform: 'scale(1)' })),
-    transition('enter => void', animate(hideTime)),
     transition('void => enter', animate(showTime))
 ]);
 }
 
-let anim = createScaleAnim('anim', 250, 0);
+let anim = createScaleAnim('anim', 200, 0);
 
 @Component({
   selector: 'app-score-selector',
@@ -18,9 +17,9 @@ let anim = createScaleAnim('anim', 250, 0);
   animations: [anim]
 })
 export class ScoreSelectorComponent implements OnInit {
-  @Input() options = [1, 2, 3, 5];
-  @Input() score: number;
-  @Output() scoreChange = new EventEmitter<number>();
+  @Input() options = [1, 2, 3];
+  @Input('score') score: number;
+  @Output('scoreChange') scoreEvent = new EventEmitter<number>();
 
   constructor() {
     
@@ -32,7 +31,7 @@ export class ScoreSelectorComponent implements OnInit {
 
   setScore(newScore: number) {
     this.score = newScore;
-    this.scoreChange.emit(newScore);
+    this.scoreEvent.emit(newScore);
   }
 
 }
