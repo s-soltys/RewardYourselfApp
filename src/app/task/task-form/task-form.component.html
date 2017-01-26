@@ -3,6 +3,11 @@
   <form (ngSubmit)='submitTaskEvent.emit(taskForm.value)' #taskForm="ngForm">
     <md-input placeholder="Tag" type="text" name='tag' ngModel required></md-input><br>
     <md-input placeholder="Score" type="number" name='score' ngModel required></md-input><br>
-    <button md-raised-button color="primary" type="submit" value="submit"[disabled]="!taskForm.valid">SAVE</button>
+    <button md-raised-button color="primary" type="submit" value="submit" [disabled]="!taskForm.valid">SAVE</button>
   </form>
+  <div>
+    <app-score-selector [(score)]='outerScore'></app-score-selector>
+    <!--<input type="text" [ngModel]='outerScore' (ngModel)='console.log($event);'>-->
+    <h3>{{ outerScore }}</h3>
+  </div>
 </md-card>

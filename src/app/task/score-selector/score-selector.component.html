@@ -1,0 +1,4 @@
+<span *ngFor='let option of options' (click)='setScore(option)'>
+  <div [@anim]="score == option ? 'enter' : 'void'"></div>
+  <strong>{{ option }}</strong>
+</span>

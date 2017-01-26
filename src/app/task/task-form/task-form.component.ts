@@ -8,6 +8,8 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 export class TaskFormComponent implements OnInit {
   @Output('taskSubmitted') submitTaskEvent = new EventEmitter();
 
+  outerScore: number = 2;
+
   constructor() { }
 
   ngOnInit() {

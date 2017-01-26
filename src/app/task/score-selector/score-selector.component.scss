@@ -1,0 +1,30 @@
+:host > span {
+    display: block;
+    position: relative;
+    width: 60px;
+    height: 60px;
+    background-color: silver;
+    border-radius: 30px;
+    color: white;
+}
+
+:host {
+    small {
+        color: red;
+    }
+
+    div {
+        position: absolute;
+        width: 60px;
+        height: 60px;
+        background: purple;
+        border-radius: 30px;
+    }
+
+    strong {
+        position: absolute;
+        left: 40%;
+        top: 30%;
+        font-size: 30px;
+    }
+}
