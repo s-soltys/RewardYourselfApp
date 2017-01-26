@@ -6,7 +6,7 @@
     <button md-raised-button color="primary" type="submit" value="submit" [disabled]="!taskForm.valid">SAVE</button>
   </form>
   <div>
-    <app-score-selector [(score)]='outerScore'></app-score-selector>
+    <app-score-selector [(score)]='outerScore' [options]='[1, 2, 3, 5]'></app-score-selector>
     <!--<input type="text" [ngModel]='outerScore' (ngModel)='console.log($event);'>-->
     <h3>{{ outerScore }}</h3>
   </div>

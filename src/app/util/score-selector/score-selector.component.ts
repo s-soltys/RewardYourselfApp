@@ -18,14 +18,16 @@ let anim = createScaleAnim('anim', 250, 0);
   animations: [anim]
 })
 export class ScoreSelectorComponent implements OnInit {
+  @Input() options = [1, 2, 3, 5];
   @Input() score: number;
   @Output() scoreChange = new EventEmitter<number>();
 
-  options = [1, 2, 3, 5]
-
-  constructor() { }
+  constructor() {
+    
+  }
 
   ngOnInit() {
+    
   }
 
   setScore(newScore: number) {

@@ -5,7 +5,6 @@ import { TaskFormComponent } from './task-form/task-form.component';
 import { TaskDashboardComponent } from './task-dashboard/task-dashboard.component';
 import { CoreModule } from './../core/core.module';
 import { MaterialModule } from '@angular/material';
-import { ScoreSelectorComponent } from './score-selector/score-selector.component';
 
 @NgModule({
   imports: [
@@ -13,7 +12,7 @@ import { ScoreSelectorComponent } from './score-selector/score-selector.componen
     CoreModule,
     MaterialModule.forRoot()
   ],
-  declarations: [TaskListComponent, TaskFormComponent, TaskDashboardComponent, ScoreSelectorComponent],
+  declarations: [TaskListComponent, TaskFormComponent, TaskDashboardComponent],
   exports: [TaskDashboardComponent]
 })
 export class TaskModule { }

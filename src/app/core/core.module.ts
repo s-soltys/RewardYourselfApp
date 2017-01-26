@@ -1,3 +1,4 @@
+import { UtilModule } from './../util/util.module';
 import { MinimongoService } from './minimongo.service';
 import { TaskService } from './task.service';
 import { FormsModule } from '@angular/forms';
@@ -7,7 +8,8 @@ import { CommonModule } from '@angular/common';
 @NgModule({
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    UtilModule
   ],
   declarations: [],
   providers: [
@@ -16,7 +18,8 @@ import { CommonModule } from '@angular/common';
   ],
   exports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    UtilModule
   ]
 })
 export class CoreModule { }
