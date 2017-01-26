@@ -1,13 +1,19 @@
 <md-card class="app-input-section">
   <md-card-title>Add task</md-card-title>
   <form (ngSubmit)='submitTaskEvent.emit(taskForm.value)' #taskForm="ngForm">
-    <md-input placeholder="Tag" type="text" name='tag' ngModel required></md-input><br>
-    <md-input placeholder="Score" type="number" name='score' ngModel required></md-input><br>
-    <button md-raised-button color="primary" type="submit" value="submit" [disabled]="!taskForm.valid">SAVE</button>
+    <md-card-content>
+      <md-input placeholder="Tag" type="text" name='tag' ngModel required></md-input>
+    </md-card-content>
+    <p>
+      Score
+    </p>
+    <md-card-content>
+      <md-button-toggle-group name="score" ngModel required>
+        <md-button-toggle *ngFor="let option of options" [value]="option">{{ option }}</md-button-toggle>
+      </md-button-toggle-group>
+    </md-card-content>
+    <md-card-content>
+      <button md-raised-button color="primary" type="submit" value="submit" [disabled]="!taskForm.valid">SAVE</button>
+    </md-card-content>
   </form>
-  <div>
-    <app-score-selector [(score)]='outerScore' [options]='[1, 2, 3, 5, 10]'></app-score-selector>
-    <!--<input type="text" [ngModel]='outerScore' (ngModel)='console.log($event);'>-->
-    <h3>{{ outerScore }}</h3>
-  </div>
 </md-card>
