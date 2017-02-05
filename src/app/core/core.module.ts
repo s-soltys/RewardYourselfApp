@@ -4,6 +4,7 @@ import { TaskService } from './task.service';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Task } from './task';
 
 @NgModule({
   imports: [
@@ -25,5 +26,6 @@ import { CommonModule } from '@angular/common';
 export class CoreModule { }
 
 export {
-  TaskService
+  TaskService,
+  Task
 }

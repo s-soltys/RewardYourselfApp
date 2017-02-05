@@ -4,5 +4,6 @@
   <md-card-content>
         <span>{{  task.score }}</span>
         <span class="demo-2"> -- <small>({{ task._id.substr(0, 3) }}...)</small></span>
+        <a (click)='deleteTask.emit(task)' href="javascript:void(0)">X</a>
   </md-card-content>
 </md-card>

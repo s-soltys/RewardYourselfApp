@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TaskService } from './../../core/core.module';
+import { Task, TaskService } from './../../core/core.module';
 
 @Component({
   selector: 'app-task-dashboard',
@@ -22,6 +22,14 @@ export class TaskDashboardComponent implements OnInit {
   }
 
   updateTaskList(){
-    this.tasks$ = this.taskService.getTasks().map(tasks => tasks.sort((a, b) => a.tag > b.tag ? +1 : -1));
+    this.tasks$ = this.getTasks();
+  }
+
+  deleteTask(task: Task) {
+    this.tasks$ = this.taskService.remove(task).switchMap(_ => this.getTasks());
+  }
+
+  getTasks(){
+    return this.taskService.getTasks().map(tasks => tasks.sort((a, b) => a.tag > b.tag ? +1 : -1));
   }
 }

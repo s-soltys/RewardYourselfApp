@@ -28,4 +28,5 @@ export class MinimongoService {
 interface MinimongoCollection {
     find(selector?, options?): { fetch(success?, error?) };
     upsert(docs?, bases?, success?, error?);
+    remove(id: string, success?);
 }

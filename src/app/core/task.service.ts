@@ -25,4 +25,12 @@ export class TaskService {
       });
     });
   }
+
+  remove(task: Task){
+    return new Observable<string>((subscriber: Subscriber<string>) => {
+      this.minimongo.tasks.remove(task._id, result => {
+          subscriber.next(task._id);
+      });
+    });
+  }
 }
