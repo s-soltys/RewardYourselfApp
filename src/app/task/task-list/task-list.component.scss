@@ -2,12 +2,11 @@
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  align-content: space-around;
+  align-content: flex-start;
   padding: 5px;
   
   md-card {
     margin: 5px;
-    flex: 1;
-    flex-basis: 1;
+    flex: 1 60px;
   }
 }
