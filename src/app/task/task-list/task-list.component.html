@@ -1,15 +1,8 @@
-<md-card>
-  <md-card-subtitle>Current tasks</md-card-subtitle>
-  <md-card-title>List of tasks</md-card-title>
+<md-card *ngFor="let task of tasks">
+  <md-card-subtitle>Task</md-card-subtitle>
+  <md-card-title>{{ task.tag }}</md-card-title>
   <md-card-content>
-    <md-list dense>
-      <md-list-item *ngFor="let task of tasks">
-        <h3 md-line>{{ task.tag }}</h3>
-        <p md-line>
-          <span>{{  task.score }}</span>
-          <span class="demo-2"> -- <small>({{ task._id.substr(0, 3) }}...)</small></span>
-        </p>
-      </md-list-item>
-    </md-list>
+        <span>{{  task.score }}</span>
+        <span class="demo-2"> -- <small>({{ task._id.substr(0, 3) }}...)</small></span>
   </md-card-content>
 </md-card>
