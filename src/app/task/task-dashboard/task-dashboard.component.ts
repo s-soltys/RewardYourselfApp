@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { TaskListComponent } from './../task-list/task-list.component';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Task, TaskService } from './../../core/core.module';
 
 @Component({
@@ -7,6 +8,8 @@ import { Task, TaskService } from './../../core/core.module';
   styleUrls: ['./task-dashboard.component.scss']
 })
 export class TaskDashboardComponent implements OnInit {
+  @ViewChild(TaskListComponent) taskList: TaskListComponent;
+  
   tasks$;
 
   constructor(private taskService: TaskService) { }
