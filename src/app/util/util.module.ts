@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ScoreSelectorComponent } from './score-selector/score-selector.component';
 import { MaterialModule } from '@angular/material';
+import { StretchHeightDirective } from './stretch-height.directive';
 
 @NgModule({
   imports: [
@@ -9,10 +10,12 @@ import { MaterialModule } from '@angular/material';
     MaterialModule.forRoot()
   ],
   declarations: [
-    ScoreSelectorComponent
+    ScoreSelectorComponent,
+    StretchHeightDirective
   ],
   exports: [
-    ScoreSelectorComponent
+    ScoreSelectorComponent,
+    StretchHeightDirective
   ]
 })
 export class UtilModule { }

@@ -1,3 +1,8 @@
+:host {
+    margin: 10px 10px;
+    display: block;
+}
+
 #add-button {
     position: fixed;
     right: 10px;
@@ -10,6 +15,7 @@ md-card {
 
 #form-container {
     position: fixed;
+    left: 0px;
     bottom: 0px;
     width: 100%;
 }
