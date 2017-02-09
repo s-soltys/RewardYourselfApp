@@ -1,19 +1,20 @@
 <md-sidenav-layout>
   <md-toolbar color="primary">
     <span>Reward Yourself</span>
-
-    <!-- This fills the remaining space of the current row -->
     <span class="example-fill-remaining-space"></span>
-
     <span></span>
   </md-toolbar>
   <div class="app-content">
     <md-tab-group>
       <md-tab label="Tasks">
-        <app-task-dashboard></app-task-dashboard>
+        <div class="tab-content">
+          <app-task-dashboard></app-task-dashboard>
+        </div>
       </md-tab>
       <md-tab label="History">
+        <div class="tab-content">
           <md-card>Title</md-card>
+        </div>
       </md-tab>
     </md-tab-group>
   </div>

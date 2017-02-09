@@ -1,11 +1,10 @@
-<md-card>
+<div id='list-container'>
     <app-task-list (onDeleted)='deleteTask($event)' [tasks]='tasks$ | async'></app-task-list>
-</md-card>
-<div id='task-container'>
-    <div [@flyInFromBottom]="formSwitch.value">
-        <app-task-form (taskSubmitted)='taskReceived($event)'></app-task-form>
+    <div id='form-container'>
+        <div [@flyInFromBottom]="formSwitch.value">
+            <app-task-form (taskSubmitted)='taskReceived($event)'></app-task-form>
+        </div>
     </div>
+    <input #formSwitch type='hidden' value='void'>
+    <button id='add-button' color="primary" md-fab (click)="formSwitch.value = (formSwitch.value === 'void') ? 'show' : 'void'">&#65291;</button>
 </div>
-<input #formSwitch type='hidden' value='void'>
-<button id='add-button' color="primary"
-    md-fab (click)="formSwitch.value = (formSwitch.value === 'void') ? 'show' : 'void'">&#65291;</button>
