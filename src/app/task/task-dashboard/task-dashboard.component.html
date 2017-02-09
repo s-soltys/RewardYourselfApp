@@ -1,2 +1,4 @@
-<app-task-list (onDeleted)='deleteTask($event)' [tasks]='tasks$ | async'></app-task-list>
-<app-task-form (taskSubmitted)='taskReceived($event)'></app-task-form>
+<md-card>
+    <app-task-list (onDeleted)='deleteTask($event)' [tasks]='tasks$ | async'></app-task-list>
+    <app-task-form (taskSubmitted)='taskReceived($event)'></app-task-form>
+</md-card>
