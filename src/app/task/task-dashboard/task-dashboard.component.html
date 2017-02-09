@@ -1,4 +1,11 @@
 <md-card>
     <app-task-list (onDeleted)='deleteTask($event)' [tasks]='tasks$ | async'></app-task-list>
-    <app-task-form (taskSubmitted)='taskReceived($event)'></app-task-form>
 </md-card>
+<div id='task-container'>
+    <div [@flyInFromBottom]="formSwitch.value">
+        <app-task-form (taskSubmitted)='taskReceived($event)'></app-task-form>
+    </div>
+</div>
+<input #formSwitch type='hidden' value='void'>
+<button id='add-button' color="primary"
+    md-fab (click)="formSwitch.value = (formSwitch.value === 'void') ? 'show' : 'void'">&#65291;</button>

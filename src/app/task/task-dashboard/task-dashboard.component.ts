@@ -1,3 +1,4 @@
+import { FlyInFromBottomAnimation } from './../animations/fly-from-bottom.animation';
 import { TaskListComponent } from './../task-list/task-list.component';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Task, TaskService } from './../../core/core.module';
@@ -5,7 +6,8 @@ import { Task, TaskService } from './../../core/core.module';
 @Component({
   selector: 'app-task-dashboard',
   templateUrl: './task-dashboard.component.html',
-  styleUrls: ['./task-dashboard.component.scss']
+  styleUrls: ['./task-dashboard.component.scss'],
+  animations: [FlyInFromBottomAnimation(500)]
 })
 export class TaskDashboardComponent implements OnInit {
   @ViewChild(TaskListComponent) taskList: TaskListComponent;
