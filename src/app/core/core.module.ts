@@ -1,5 +1,4 @@
 import { UtilModule } from './../util/util.module';
-import { MinimongoService } from './minimongo.service';
 import { TaskService } from './task.service';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
@@ -14,8 +13,7 @@ import { Task } from './task';
   ],
   declarations: [],
   providers: [
-    TaskService,
-    MinimongoService
+    TaskService
   ],
   exports: [
     CommonModule,
