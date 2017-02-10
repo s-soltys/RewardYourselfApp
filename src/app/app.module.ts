@@ -1,3 +1,4 @@
+import { UtilModule } from './util/util.module';
 import { CoreModule } from './core/core.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -23,6 +24,7 @@ const minimongo = MinimongoModule.forRoot({
     FormsModule,
     HttpModule,
     CoreModule,
+    UtilModule,
     TaskModule,
     minimongo,
     MaterialModule.forRoot()
