@@ -1,3 +1,4 @@
+import { TimelineModule } from './timeline/timeline.module';
 import { UtilModule } from './util/util.module';
 import { CoreModule } from './core/core.module';
 import { BrowserModule } from '@angular/platform-browser';
@@ -26,6 +27,7 @@ const minimongo = MinimongoModule.forRoot({
     CoreModule,
     UtilModule,
     TaskModule,
+    TimelineModule,
     minimongo,
     MaterialModule.forRoot()
   ],
