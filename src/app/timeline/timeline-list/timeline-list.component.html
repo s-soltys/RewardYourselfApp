@@ -1,3 +1,8 @@
-<p>
-  timeline-list works!
-</p>
+<div>
+  <p>
+    Existing task ID's
+  </p>
+  <div *ngFor='let task of tasks$ | async'>
+    {{ task._id }}
+  </div>
+</div>

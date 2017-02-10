@@ -1,6 +1,6 @@
-import { TaskService } from './task.service';
+import { TaskService } from './task/task.service';
 import { NgModule } from '@angular/core';
-import { Task } from './task';
+import { Task } from './task/task';
 
 @NgModule({
   declarations: [],

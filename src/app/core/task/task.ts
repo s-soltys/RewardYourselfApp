@@ -1,4 +1,4 @@
-import { MinimongoEntity } from './../minimongo/minimongo.module';
+import { MinimongoEntity } from './../../minimongo/minimongo.module';
 
 export interface Task extends MinimongoEntity {
     tag: string;

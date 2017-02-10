@@ -7,14 +7,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { TaskModule } from './task/task.module';
 import { MaterialModule } from '@angular/material';
-import { MinimongoModule, MinimongoConfig } from './minimongo/minimongo.module';
-
+import { MinimongoModule } from './minimongo/minimongo.module';
 import { AppComponent } from './app.component';
-
-const minimongo = MinimongoModule.forRoot({
-  namespace: 'mm',
-  collections: ['tasks']
-});
 
 @NgModule({
   declarations: [
@@ -28,7 +22,7 @@ const minimongo = MinimongoModule.forRoot({
     UtilModule,
     TaskModule,
     TimelineModule,
-    minimongo,
+    MinimongoModule.forRoot({ namespace: 'mm' }),
     MaterialModule.forRoot()
   ],
   providers: [],
