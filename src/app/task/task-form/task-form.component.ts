@@ -14,5 +14,10 @@ export class TaskFormComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  submit(taskForm){
+    this.submitTaskEvent.emit(taskForm.value);
+    taskForm.reset();
+  }
   
 }

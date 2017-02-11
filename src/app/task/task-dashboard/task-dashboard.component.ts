@@ -16,6 +16,7 @@ import { Task, TaskService } from './../../core/core.module';
 export class TaskDashboardComponent implements OnInit {
   @ViewChild(TaskListComponent) taskList: TaskListComponent;
   
+  formSwitch = 'void';
   tasks$;
 
   constructor(private taskService: TaskService) { }
@@ -27,7 +28,12 @@ export class TaskDashboardComponent implements OnInit {
   taskReceived(task){
     this.taskService.upsert(task).subscribe(r => {
       this.updateTaskList();
+      this.formSwitch = 'void';
     });
+  }
+
+  toggleForm(){
+    this.formSwitch = (this.formSwitch === 'void') ? 'show' : 'void';
   }
 
   updateTaskList(){

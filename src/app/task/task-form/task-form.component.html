@@ -1,6 +1,6 @@
 <md-card class="app-input-section">
   <md-card-title>Add task</md-card-title>
-  <form (ngSubmit)='submitTaskEvent.emit(taskForm.value)' #taskForm="ngForm">
+  <form (ngSubmit)='submit(taskForm)' #taskForm="ngForm">
     <md-card-content>
       <md-input placeholder="Tag" type="text" name='tag' ngModel required></md-input>
     </md-card-content>
