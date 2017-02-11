@@ -1,3 +1,4 @@
+import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ScoreSelectorComponent } from './score-selector/score-selector.component';
@@ -7,6 +8,7 @@ import { StretchHeightDirective } from './stretch-height.directive';
 @NgModule({
   imports: [
     CommonModule,
+    FormsModule,
     MaterialModule
   ],
   declarations: [
@@ -14,8 +16,13 @@ import { StretchHeightDirective } from './stretch-height.directive';
     StretchHeightDirective
   ],
   exports: [
+    CommonModule,
+    FormsModule,
+    MaterialModule,
     ScoreSelectorComponent,
     StretchHeightDirective
   ]
 })
-export class UtilModule { }
+export class SharedModule {
+  
+}

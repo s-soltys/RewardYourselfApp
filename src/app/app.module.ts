@@ -1,9 +1,7 @@
 import { TimelineModule } from './timeline/timeline.module';
-import { UtilModule } from './util/util.module';
 import { CoreModule } from './core/core.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { TaskModule } from './task/task.module';
 import { MaterialModule } from '@angular/material';
@@ -16,10 +14,8 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    FormsModule,
     HttpModule,
     CoreModule,
-    UtilModule,
     TaskModule,
     TimelineModule,
     MinimongoModule.forRoot({ namespace: 'mm' }),
