@@ -1,11 +1,5 @@
-<!--<md-card *ngFor="let task of tasks" [@discardCard]="task.deleted || 'show'">
-  <md-card-title>{{ task.tag }}</md-card-title>
-  <md-card-content>
-      <span>{{ task.score }}</span>
-  </md-card-content>
-  <md-card-content>
-      <a md-raised-button (click)='remove(task)' href="javascript:void(0)">DELETE</a>
-  </md-card-content>
-</md-card>-->
-
-<app-task-card *ngFor="let task of tasks; trackBy: trackTask" [task]='task' (delete)='remove($event)'></app-task-card>
+<app-task-card
+    *ngFor="let task of tasks; trackBy: trackTask"
+    [task]='task'
+    (delete)='remove($event)'>
+</app-task-card>
