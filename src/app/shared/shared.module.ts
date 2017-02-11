@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ScoreSelectorComponent } from './score-selector/score-selector.component';
 import { MaterialModule } from '@angular/material';
-import { StretchHeightDirective } from './stretch-height.directive';
+import { StretchHeightContainerComponent } from './stretch-height-container/stretch-height-container.component';
 
 @NgModule({
   imports: [
@@ -13,14 +13,14 @@ import { StretchHeightDirective } from './stretch-height.directive';
   ],
   declarations: [
     ScoreSelectorComponent,
-    StretchHeightDirective
+    StretchHeightContainerComponent
   ],
   exports: [
     CommonModule,
     FormsModule,
     MaterialModule,
     ScoreSelectorComponent,
-    StretchHeightDirective
+    StretchHeightContainerComponent
   ]
 })
 export class SharedModule {

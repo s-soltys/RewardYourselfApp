@@ -1,3 +1,4 @@
+import { SharedModule } from './shared/shared.module';
 import { TimelineModule } from './timeline/timeline.module';
 import { CoreModule } from './core/core.module';
 import { BrowserModule } from '@angular/platform-browser';
@@ -14,6 +15,7 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
+    SharedModule,
     HttpModule,
     CoreModule,
     TaskModule,

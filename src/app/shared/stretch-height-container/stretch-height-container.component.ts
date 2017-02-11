@@ -1,10 +1,17 @@
-import { Directive, ElementRef } from '@angular/core';
+import { Component, OnInit, ElementRef } from '@angular/core';
 
-@Directive({
-  selector: '[appStretchHeight]'
+@Component({
+  selector: 'app-stretch-height-container',
+  template: '<ng-content></ng-content>',
+  styles: [`:host { overflow-y: scroll; display: block; }`]
 })
-export class StretchHeightDirective {
+export class StretchHeightContainerComponent implements OnInit {
+
   constructor(private el: ElementRef) {
+  }
+
+
+  ngOnInit() {
   }
 
   ngAfterViewChecked(){
@@ -14,4 +21,5 @@ export class StretchHeightDirective {
 
       this.el.nativeElement.style.height = targetHeight + 'px';
   }
+  
 }
