@@ -1,10 +1,6 @@
 <app-task-list [@fade]="(formSwitch.value === 'void') ? 'show' : 'void'" (onDeleted)='deleteTask($event)' [tasks]='tasks$ | async'>
 </app-task-list>
-<div id='form-container'>
-    <div [@flyInFromBottom]="formSwitch.value">
-        <app-task-form (taskSubmitted)='taskReceived($event)'></app-task-form>
-    </div>
-</div>
+<app-task-form [@flyInFromBottom]="formSwitch.value" (taskSubmitted)='taskReceived($event)'></app-task-form>
 <!--<div id='cover'></div>-->
 <input #formSwitch type='hidden' value='void'>
 <button id='add-button' color="primary" md-fab (click)="formSwitch.value = (formSwitch.value === 'void') ? 'show' : 'void'">&#65291;</button>
