@@ -13,7 +13,7 @@ import { TaskCardComponent } from './task-card/task-card.component';
     CommonModule,
     FormsModule,
     UtilModule,
-    MaterialModule.forRoot()
+    MaterialModule
   ],
   declarations: [TaskListComponent, TaskFormComponent, TaskDashboardComponent, TaskCardComponent],
   exports: [TaskDashboardComponent]

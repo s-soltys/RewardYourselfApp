@@ -4,16 +4,13 @@ import { MinimongoReference } from './reference/minimongo-reference';
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { MinimongoConfig, MINIMONGO_CONFIG } from './config/minimongo-config';
 
-@NgModule({
-  providers: [
-    MinimongoReference
-  ]
-})
+@NgModule()
 export class MinimongoModule {
   static forRoot(config: MinimongoConfig): ModuleWithProviders {
     return {
       ngModule: MinimongoModule,
       providers: [
+        MinimongoReference,
         { provide: MINIMONGO_CONFIG, useValue: config }
       ]
     };

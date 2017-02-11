@@ -7,7 +7,7 @@ import { StretchHeightDirective } from './stretch-height.directive';
 @NgModule({
   imports: [
     CommonModule,
-    MaterialModule.forRoot()
+    MaterialModule
   ],
   declarations: [
     ScoreSelectorComponent,

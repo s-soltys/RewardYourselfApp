@@ -7,7 +7,7 @@ const minimongo = require('minimongo');
 export class MinimongoReference {
     private db;
 
-    constructor( @Inject(MINIMONGO_CONFIG) private config: MinimongoConfig) {
+    constructor(@Inject(MINIMONGO_CONFIG) private config: MinimongoConfig) {
         this.db = new minimongo.LocalStorageDb({ namespace: config.namespace });
     }
 
