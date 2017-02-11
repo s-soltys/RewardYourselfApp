@@ -2,7 +2,7 @@ import { MinimongoEntity } from './collection/minimongo-entity';
 import { MinimongoCollection } from './collection/minimongo-collection';
 import { MinimongoReference } from './reference/minimongo-reference';
 import { NgModule, ModuleWithProviders } from '@angular/core';
-import { MinimongoConfig, MINIMONGO_CONFIG } from './config/minimongo-config';
+import { MinimongoConfig } from './config/minimongo-config';
 
 @NgModule()
 export class MinimongoModule {
@@ -11,7 +11,7 @@ export class MinimongoModule {
       ngModule: MinimongoModule,
       providers: [
         MinimongoReference,
-        { provide: MINIMONGO_CONFIG, useValue: config }
+        { provide: MinimongoConfig, useValue: config }
       ]
     };
   }

@@ -1,4 +1,4 @@
-import { MinimongoConfig, MINIMONGO_CONFIG } from './../config/minimongo-config';
+import { MinimongoConfig } from './../config/minimongo-config';
 import { MinimongoCollection } from './../collection/minimongo-collection';
 import { Inject, Injectable } from '@angular/core';
 const minimongo = require('minimongo');
@@ -7,7 +7,7 @@ const minimongo = require('minimongo');
 export class MinimongoReference {
     private db;
 
-    constructor(@Inject(MINIMONGO_CONFIG) private config: MinimongoConfig) {
+    constructor(private config: MinimongoConfig) {
         this.db = new minimongo.LocalStorageDb({ namespace: config.namespace });
     }
 
