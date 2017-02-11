@@ -4,8 +4,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 @Component({
   selector: 'app-task-list',
   templateUrl: './task-list.component.html',
-  styleUrls: ['./task-list.component.scss'],
-  animations: [DiscardCardAnimation()]
+  styleUrls: ['./task-list.component.scss']
 })
 export class TaskListComponent implements OnInit {
   @Input('tasks') tasks;
@@ -14,14 +13,15 @@ export class TaskListComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    
+
   }
 
-  remove(task){
-    task.deleted = 'void';
-    setTimeout(() => {
+  remove(task) {
       this.deleteTask.emit(task);
-    }, 500);
+  }
+
+  trackTask(index, task) {
+    return task._id;
   }
 
 }

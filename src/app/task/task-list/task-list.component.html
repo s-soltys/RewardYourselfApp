@@ -8,4 +8,4 @@
   </md-card-content>
 </md-card>-->
 
-<app-task-card *ngFor="let task of tasks" [@discardCard]="task.deleted || 'show'" [task]='task' (delete)='remove($event)'></app-task-card>
+<app-task-card *ngFor="let task of tasks; trackBy: trackTask" [task]='task' (delete)='remove($event)'></app-task-card>
