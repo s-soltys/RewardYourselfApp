@@ -2,7 +2,5 @@
   <p>
     Existing task ID's
   </p>
-  <div *ngFor='let task of tasks$ | async'>
-    {{ task._id }}
-  </div>
+  <div *ngFor='let task of tasks$ | async'>{{ task._id }}</div>
 </div>

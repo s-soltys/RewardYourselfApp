@@ -5,32 +5,35 @@ import { Observable, Subscriber } from 'rxjs/Rx';
 
 @Injectable()
 export class TaskService {
-  tasks = this.minimongo.getCollection<Task>('tasks');
+  tasksCollection = this.minimongo.getCollection<Task>('tasks');
 
   constructor(private minimongo: MinimongoReference) {
-    
+
   }
 
   getTasks() {
     return new Observable<Task[]>((subscriber: Subscriber<Task[]>) => {
-      this.tasks.find({}).fetch(tasks => {
+      this.tasksCollection.find({}).fetch(tasks => {
         subscriber.next(tasks);
+        subscriber.complete();
       });
     });
   }
 
   upsert(task) {
     return new Observable<Task>((subscriber: Subscriber<Task>) => {
-      this.tasks.upsert(task, responseTask => {
-          subscriber.next(responseTask);
+      this.tasksCollection.upsert(task, responseTask => {
+        subscriber.next(responseTask);
+        subscriber.complete();
       });
     });
   }
 
-  remove(task: Task){
+  remove(task: Task) {
     return new Observable<string>((subscriber: Subscriber<string>) => {
-      this.tasks.remove(task._id, () => {
-          subscriber.next(task._id);
+      this.tasksCollection.remove(task._id, () => {
+        subscriber.next(task._id);
+        subscriber.complete();
       });
     });
   }

@@ -1,7 +1,7 @@
 import { FadeAnimation } from './../animations/fade.animation';
 import { FlyInFromBottomAnimation } from './../animations/fly-from-bottom.animation';
 import { TaskListComponent } from './../task-list/task-list.component';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
 import { Task, TaskService } from './../../core/core.module';
 
 @Component({
@@ -15,20 +15,19 @@ import { Task, TaskService } from './../../core/core.module';
 })
 export class TaskDashboardComponent implements OnInit {
   @ViewChild(TaskListComponent) taskList: TaskListComponent;
-  
+  tasks$ = this.getTasks();
+  refreshTasks = new EventEmitter<void>();
   formSwitch = 'void';
-  tasks$;
 
   constructor(private taskService: TaskService) { }
 
   ngOnInit() {
-    this.updateTaskList();
   }
 
   taskReceived(task){
     this.taskService.upsert(task).subscribe(r => {
-      this.updateTaskList();
       this.formSwitch = 'void';
+      this.refreshTasks.emit();
     });
   }
 
@@ -36,15 +35,18 @@ export class TaskDashboardComponent implements OnInit {
     this.formSwitch = (this.formSwitch === 'void') ? 'show' : 'void';
   }
 
-  updateTaskList(){
-    this.tasks$ = this.getTasks();
-  }
-
   deleteTask(task: Task) {
-    this.tasks$ = this.taskService.remove(task).switchMap(_ => this.getTasks());
+    this.taskService.remove(task).subscribe(_ => {
+      this.refreshTasks.emit();
+    });
   }
 
   getTasks(){
-    return this.taskService.getTasks().map(tasks => tasks.sort((a, b) => a.tag > b.tag ? +1 : -1));
+    return this.taskService
+      .getTasks()
+      .delay(0)
+      .repeatWhen(_ => this.refreshTasks)
+      .map(tasks => tasks.sort((a, b) => b.score - a.score))
+      .share();
   }
 }
