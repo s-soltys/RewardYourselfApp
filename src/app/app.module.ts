@@ -6,7 +6,7 @@ import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { TaskModule } from './task/task.module';
 import { MaterialModule } from '@angular/material';
-import { MinimongoModule } from './minimongo/minimongo.module';
+import { MinimongoModule } from 'angular2-minimongo';
 import { AppComponent } from './app.component';
 
 @NgModule({

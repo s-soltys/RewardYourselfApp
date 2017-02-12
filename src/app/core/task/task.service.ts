@@ -1,4 +1,4 @@
-import { MinimongoCollection, MinimongoReference } from './../../minimongo/minimongo.module';
+import { MinimongoService } from 'angular2-minimongo';
 import { Task } from './task';
 import { Injectable, Inject } from '@angular/core';
 import { Observable, Subscriber } from 'rxjs/Rx';
@@ -7,34 +7,19 @@ import { Observable, Subscriber } from 'rxjs/Rx';
 export class TaskService {
   tasksCollection = this.minimongo.getCollection<Task>('tasks');
 
-  constructor(private minimongo: MinimongoReference) {
+  constructor(private minimongo: MinimongoService) {
 
   }
 
   getTasks() {
-    return new Observable<Task[]>((subscriber: Subscriber<Task[]>) => {
-      this.tasksCollection.find({}).fetch(tasks => {
-        subscriber.next(tasks);
-        subscriber.complete();
-      });
-    });
+    return this.tasksCollection.find({});
   }
 
   upsert(task) {
-    return new Observable<Task>((subscriber: Subscriber<Task>) => {
-      this.tasksCollection.upsert(task, responseTask => {
-        subscriber.next(responseTask);
-        subscriber.complete();
-      });
-    });
+    return this.tasksCollection.upsert(task);
   }
 
   remove(task: Task) {
-    return new Observable<string>((subscriber: Subscriber<string>) => {
-      this.tasksCollection.remove(task._id, () => {
-        subscriber.next(task._id);
-        subscriber.complete();
-      });
-    });
+    return this.tasksCollection.remove(task._id);
   }
 }
