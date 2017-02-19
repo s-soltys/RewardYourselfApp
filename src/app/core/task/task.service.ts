@@ -1,4 +1,4 @@
-import { MinimongoService } from 'angular2-minimongo';
+import { Minimongo } from 'angular2-minimongo';
 import { Task } from './task';
 import { Injectable, Inject } from '@angular/core';
 import { Observable, Subscriber } from 'rxjs/Rx';
@@ -7,7 +7,7 @@ import { Observable, Subscriber } from 'rxjs/Rx';
 export class TaskService {
   tasksCollection = this.minimongo.getCollection<Task>('tasks');
 
-  constructor(private minimongo: MinimongoService) {
+  constructor(private minimongo: Minimongo) {
 
   }
 

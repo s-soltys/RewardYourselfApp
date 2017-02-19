@@ -20,7 +20,7 @@ import { AppComponent } from './app.component';
     CoreModule,
     TaskModule,
     TimelineModule,
-    MinimongoModule.forRoot({ namespace: 'mm' }),
+    MinimongoModule.forRoot({ namespace: 'mm', type: 'LocalStorageDb' }),
     MaterialModule.forRoot()
   ],
   providers: [],
