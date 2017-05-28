@@ -9,7 +9,9 @@
     "lint": "tslint \"src/**/*.ts\" --project src/tsconfig.json --type-check && tslint \"e2e/**/*.ts\" --project e2e/tsconfig.json --type-check",
     "test": "ng test",
     "pree2e": "webdriver-manager update --standalone false --gecko false",
-    "e2e": "protractor"
+    "e2e": "protractor",
+    "docker:build": "docker build -t docker-demo-dev .",
+    "docker:run": "docker run -it --rm -p 4200:4200 -v ${pwd}/src:/app/src docker-demo-dev"
   },
   "private": true,
   "dependencies": {
